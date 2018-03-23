@@ -1430,10 +1430,14 @@
             if (t[i].deathTime>0)
             {
                 txSetTextAlign(TA_LEFT);
-                s="DEAD  respawn in "+toString(t[i].deathTime)+" turns";
+                s="DEAD";
                 char c5[s.length()];
                 toMasOfChar(s, c5);
                 txTextOut(20, (yWindowSize-50)/tankAmount*(i+0.1), c5);
+                s="Respawn: "+toString(t[i].deathTime)+" turns";
+                char c6[s.length()];
+                toMasOfChar(s, c6);
+                txTextOut(10, (yWindowSize-50)/tankAmount-50, c5);
             }
             txSetTextAlign(TA_RIGHT);
             s=toString(t[i].distributionPoints)+" points";
@@ -1630,7 +1634,7 @@
                     YCENTER-60,
                     XCENTER+120,
                     YCENTER+60,
-                    "Card Redactor"
+                    "Map Redactor"
                     );
         if (comingSoon)
         {
