@@ -113,6 +113,7 @@
                     {
                         if (t[i].statHealth<=0&&t[i].deathTime==0)
                         {
+                            t[nowIsTurnOf].distributionPoints+=25;
                             t[i].statHealth=0;
                             t[i].deathTime=3;
                             mapMas[t[i].y][t[i].x]=1;
