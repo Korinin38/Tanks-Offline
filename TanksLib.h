@@ -226,6 +226,124 @@
 //}
 //=================================================================================================================
 
+//=================================================================================================================
+//{          Logic
+//! @name    Логика
+//=================================================================================================================
+
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+
+    @brief   Инициализация карты
+             При наличии сохранённой карты выгружает её из файла, иначе генерирует случайную карту (несвязную)
+
+    @param   sav       При sav=1 выгружает из файла, иначе генерирует случайную
+    @param   *mapDat1   указатель на количество строк
+    @param   *mapDat2   указатель на количество столбцов
+
+    @see     mapMas[][]
+
+    @usage @code
+            drawMap(500, 300, 10, 6, 6);
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    void mapInitializer(bool sav, int* mapDat1, int* mapDat2);
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+
+    @brief   Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным последующим исправлением)
+
+    @param   onlycheck  При значении 1 только проверяет на связность, иначе исправляет
+    @param   mapDat1   Количество строк
+    @param   mapDat2   Количество столбцов
+
+    @return  1, если карта является сязной, и 0 в противном случае
+    @see     mapMas[][], graph[][5], checkThisPoint()
+
+    @usage @code
+             correctMapChecker(0, 10, 10);
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    bool correctMapChecker(bool onlyCheck, int mapDat1, int mapDat2);
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+
+    @brief   Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0)
+             Рекурсивный алгоритм, необходимый для работы функции <b>correctMapChecker()</b>
+
+    @param   n  номер
+
+    @return  1, если точка является связной, и 0 в противном случае
+    @see     mapMas[][], graph[][5], correctMapChecker()
+
+    @usage @code
+             checkThisPoint(25);
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    bool checkThisPoint(int n);
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+
+    @brief   Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0)
+             Рекурсивный алгоритм, необходимый для работы функции <b>correctMapChecker()</b>
+
+    @return  1, если точка является связной, и 0 в противном случае
+    @see     mapMas[][], graph[][5], correctMapChecker()
+
+    @usage @code
+             mapSavedChecker(); //Ну да, всё так просто
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    bool mapSavedChecker();
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+
+    @brief   Осуществляет контроль над камерой
+             Блокирует возможность камеры улететь далеко-далеко от карты и потом не найти её
+             Блокировка осуществляется во избежание инцидентов и отрицательных отзывов. Спасибо за понимание!
+
+    @param   *xOfCenter указатель на X-координату центра карты
+    @param   *yOfCenter указатель на Y-координату центра карты
+    @param   mapDat1    Количество строк
+    @param   mapDat2    Количество столбцов
+    @param   mapSize    Размер карты
+    @param   xWindowSize размер окна по X
+    @param   yWindowSize размер окна по Y
+
+    @see     drawMap()
+
+    @usage @code
+             xOfCenter=400;
+             yOfCenter=300;
+             xWindowSize=800;
+             yWindowSize=600;
+             while (1)
+             {
+                 yOfCenter++;
+                 mapBoundController(&xOfCenter, &yOfCenter, 6, 6, 10, xWindowSize, yWindowSize); //теперь камера остановится вовремя, и мы будем видеть её всегда
+             }
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    void mapBoundController(int* xOfCenter, int* yOfCenter, int mapDat1, int mapDat2, double mapSize, int xWindowSize, int yWindowSize);
+    void tankMovementAvailability(int n, int spd, bool turn, int xOfCenter, int yOfCenter, int mapDat1, int mapDat2, double mapSize, tank* t, bool a, int tankAmount);
+    void toMasOfChar(string s, char* c);
+
+//}
+//=================================================================================================================
     int mapMas[1000][1000];
 
     struct tank{
@@ -261,14 +379,6 @@
 
 
 
-    void mapInitializer(bool sav, int* mapDat1, int* mapDat2);
-    bool correctMapChecker(bool onlyCheck, int mapDat1, int mapDat2);
-    bool checkThisPoint(int n);
-    bool mapSavedChecker();
-    void mapBoundController(int* xOfCenter, int* yOfCenter, int mapDat1, int mapDat2, double mapSize, int xWindowSize, int yWindowSize);
-    void tankMovementAvailability(int n, int spd, bool turn, int xOfCenter, int yOfCenter, int mapDat1, int mapDat2, double mapSize, tank* t, bool a, int tankAmount);
-    void toMasOfChar(string s, char* c);
-
     //interface
     void interfaceOfMap(double* mapSize, int* xOfCenter, int* yOfCenter);
     void interfaceTankMoveCheck(tank t[], int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int tankAmount, int* timeMouseTankIgnore, int* timeMouseTankAttackIgnore, int turn, int* boomed);
@@ -283,6 +393,8 @@
     bool ultimateCircleButtonInterface(int xCenter, int yCenter, int radius);
     bool interfaceMenuButtons(int xWindowSize, int yWindowSize, bool* menuIn);
     bool chooseStart(int distanceOfStart, tank* t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2);
+    void chooseStartClear(int mapDat1, int mapDat2);
+    void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2);
 
     //drawing
     //logic
