@@ -162,7 +162,7 @@
                         if (timeTurnChange==1) turnChange=0;
                         drawNewTurn(nowIsTurnOf+1, timeTurnChange, xWindowSize, yWindowSize);
                     }
-                    if (t[nowIsTurnOf].ststSpeed!=t[nowIsTurnOf].statSpeedMax||t[nowIsTurnOf].attacked==1)
+                    if (t[nowIsTurnOf].statSpeed!=t[nowIsTurnOf].statSpeedMax||t[nowIsTurnOf].attacked==1)
                         buttonEndTurn(xWindowSize/4-50, yWindowSize-20, &timeMouseNewTurnIgnore, &turnChange);
                     if (GetAsyncKeyState(VK_ESCAPE)) menuIn=0;
                     if (pi==0)
