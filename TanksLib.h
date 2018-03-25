@@ -680,6 +680,31 @@
     void buttonsAddPerk(int xWindowSize, int yWindowSize, tank* t, int tankAmount, int tankNumber, bool* mainButtonClicked, int* timeMouseButtonAddPerkIgnore);
     bool ultimateCircleButtonInterface(int xCenter, int yCenter, int radius);
     bool interfaceMenuButtons(int xWindowSize, int yWindowSize, bool* menuIn);
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Interface
+    @brief   Функция, в целом отвечающая за расстановку танков на игровое поле
+             Вызывает chooseStartInitialise() и chooseStartClear()
+
+    @param   distanceOfStart    Дистанция между танками, которую необходимо держать при помещении танка на карту
+    @param   *tank              Указатель на экземпляр структуры tank
+    @param   xOfCenter          X-координата центра карты
+    @param   yOfCenter          Y-координата центра карты
+    @param   mapSize            Размер карты
+    @param   mapDat1            Количество строк
+    @param   mapDat2            Количество столбцов
+
+    @see     chooseStartInitialise(), chooseStartClear()
+
+    @usage @code
+            mapDat1=7;
+            mapDat2=7;
+            chooseStartInitialise(2, mapDat1, mapDat2); //генерирует мусор... необходимый для работы!
+            chooseStartClear(mapDat1, mapDat2);         //так и не поработав с мусором, чистим его. Зато пример привёл
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
     bool chooseStart(int distanceOfStart, tank* t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2);
 //}
 //=================================================================================================================
