@@ -124,7 +124,7 @@
                     }
                     drawTankStat(t, tankAmount, xWindowSize, yWindowSize, nowIsTurnOf);
                     if (timeMouseTankAttackIgnore>0)
-                        drawBoom(t[boomed], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, &timeMouseTankAttackIgnore);
+                        drawBoom(t[boomed], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, timeMouseTankAttackIgnore);
                     buttonsAddPerk(xWindowSize, yWindowSize, &t[nowIsTurnOf], tankAmount, nowIsTurnOf, &mainButtonAddPerkClicked, &timeMouseButtonAddPerkIgnore);
                     if (turnChange)
                     {

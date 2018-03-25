@@ -206,13 +206,17 @@
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Drawing
+
     @brief   –исует танк
+
     @param   x          X-координата центра карты
     @param   y          Y-координата центра карты
     @param   k          –азмер танка
     @param   pozition   позици€ танка (в какую сторону он смотрит)
     @param   tankColour цвет танка
-    @warning <b>¬нимание!</b>  k= радиус танка, не диаметр
+
+    @warning <b>¬нимание!</b>  k= <i>радиус</i> танка, <b>не</b> <i>диаметр</i> (<big>у</big> <ins>автора<ins> <del>проблемы</del> <sub>с</sub> <code>тегами</code> <dfn>шрифта<dfn> <b>HTML<b>)
+
     @usage @code
              drawKekovuyTank(600, 600, 100, 1, TX_PINK);
     @endcode
@@ -312,11 +316,15 @@
     @ingroup Drawing
     @brief   ѕодсвечивает танки в которые танк с текущей дальностью атаки может попасть в данный ход
     @param   number             число, обозначающее, чей сейчас ход
-    @param   timeTurnChange     некоторое врем€, когда кнопка отвечающа€ за смену хода заблокированна(нужно чтобы избежать случайных окончаний хода)
+    @param   timeTurnChange     некоторое врем€ (текущее, на данный момент), когда кнопка, отвечающа€ за смену хода, заблокированна(чтобы избежать случайных окончаний хода)
     @param   xWindowSize        размер окна по X
     @param   yWindowSize        размер окна по Y
     @usage @code
-             drawNewTurn(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             int ttc=40;
+             while (ttc>0)
+             {
+                drawNewTurn(0, ttc--, 800, 600);
+             }
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -330,10 +338,10 @@
     @param   yCenter            координата по y середины кнопки
     @param   radius             радиус кнопки
     @param   fillColor          цвет заполнени€ внешней части кнопки
-    @param   crossColor         цвет заполнени€ внутренней части кнопки
+    @param   crossColor         цвет заполнени€ крестика (ну ладно, плюсика) кнопки
     @param   thickness          толщина заливки кнопки
     @usage @code
-             drawButtonAddPerk(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawButtonAddPerk(400, 300, 50, TX_GREY, TW_WHITE, 5);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -343,14 +351,14 @@
 /*!
     @ingroup Drawing
     @brief   –исует кнопку меню
-    @param   XWINDOWSIZE            размер окна по x
-    @param   YWINDOWSIZE            размер окна по y
+    @param   XWINDOWSIZE    размер окна по x
+    @param   YWINDOWSIZE    размер окна по y
     @usage @code
              drawMenu(800, 600);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
-   void drawMenu(int XWINDOWSIZE, int YWINDOWSIZE);
+    void drawMenu(int XWINDOWSIZE, int YWINDOWSIZE);
 
 //{----------------------------------------------------------------------------------------------------------------
 /*!
@@ -371,13 +379,14 @@
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Drawing
-    @brief   –исует кнопку отвечающую за начало игры
+    @brief   –исует кнопку "Ќачать игру"
+             €вл€етс€ по совместительству кнопкой "ѕродолжить игру", если был произведЄн выход в меню
     @param   xCenter             координата по x середины кнопки
     @param   yCenter             координата по y середины кнопки
     @param   Color               цвет заполнени€ кнопки
-    @param   notStartButContinue если  notStartButContinue=1, то игра продолжаетс€, а не начинаетс€ заново
+    @param   notStartButContinue ѕри значении 1 рисует кнопку "ѕродолжить игру", в противном случае кнопку "Ќачать игру"
     @usage @code
-             drawButtonForMenuStartGame(400, 300, );
+             drawButtonForMenuStartGame(400, 300, TX_BLUE, true);
    @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -390,9 +399,9 @@
     @param   xCenter             координата по x середины кнопки
     @param   yCenter             координата по y середины кнопки
     @param   Color               цвет заполнени€ кнопки
-    @param   comingSoon          при значении 1 фукнци€ ещЄ не доступна
+    @param   comingSoon          при значении 1 снизу подписывает юзверю, что она Ќ≈ –јЅќ“ј≈“ ’¬ј“»“ “џ ј“№ Ќ»„≈√ќ Ќ≈ ѕ–ќ»«ќ…ƒ®“
     @usage @code
-             drawButtonForMenuMapRedactor(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawButtonForMenuMapRedactor(400, 300, TX_RED, true);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -401,33 +410,50 @@
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Drawing
-    @brief   –исует сердце €вл€ющеес€ картинкой дл€ обозначени€ hp танка
+    @brief   –исует сердце - картинку дл€ обозначени€ HP танка
+             ‘ункци€-"пиктограмма"
     @param   x             координата по x середины сердца
     @param   y             координата по y середины сердца
     @param   k             размер сердца
-    @warning <b>¬нимание!</b>  k= радиус танка, не диаметр
+
     @usage @code
-             drawHP(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawHP(200, 200, 80);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
     void drawHP(int x,int y, double k);
 
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Drawing
+    @brief   –исует скрещенные мечи - картинку дл€ обозначени€ урона выстрелов танка
+             ‘ункци€-"пиктограмма"
+    @param   x             координата по x середины сердца
+    @param   y             координата по y середины сердца
+    @param   k             размер сердца
+
+    @warning ƒа, мы знаем, что танкам не нужен меч
+             он делает больно иначе <sup>надо было уйти после дев€того</sup>
+
+    @usage @code
+             drawAttack(200, 200, 80);
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
     void drawAttack(int x,int y, double k);
 
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Drawing
-    @brief   ѕодсвечивает клетки в которые можно поставить танк
-    @param   distanceOfStart  минимальное рассто€ние на котором могут быть заспавлены танки
+    @brief   ѕодсвечивает клетки, в которые можно поставить танк
+    @param   distanceOfStart  минимальное рассто€ние, на котором могут быть расставлены танки
     @param   xOfCenter        X-координата центра карты
     @param   yOfCenter        Y-координата центра карты
     @param   mapSize          –азмер карты
     @param   mapDat1           оличество строк
     @param   mapDat2           оличество столбцов
-    @see  chooseStart(), chooseStartClear(), chooseStartInitialise(), drawMapGlowAvailable()
     @usage @code
-             drawAvailablePlaceToStart(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawAvailablePlaceToStart(2, 800, 600, 10, 10, 10);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -437,6 +463,7 @@
 /*!
     @ingroup Drawing
     @brief   ѕодсвечивает клетку, если в неЄ можно поставить танк
+
     @param   x                x-координата клетки
     @param   y                y-координата клетки
     @param   xOfCenter        X-координата центра карты
@@ -444,9 +471,9 @@
     @param   mapSize          –азмер карты
     @param   mapDat1           оличество строк
     @param   mapDat2           оличество столбцов
-    @see  chooseStart(), chooseStartClear(), chooseStartInitialise(), drawMapGlowAvailable()
+
     @usage @code
-             drawMapGlowAvailable(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawMapGlowAvailable(0, 0, 800, 600, 10, 10, 10);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -456,19 +483,25 @@
 /*!
     @ingroup Drawing
     @brief   –исует анимацию попадани€ в танк
-    @param   t                структура tank
+    @param   t                структура tank (конкретно - танк, в который стрел€ли)
     @param   xOfCenter        X-координата центра карты
     @param   yOfCenter        Y-координата центра карты
     @param   mapSize          –азмер карты
     @param   mapDat1           оличество строк
     @param   mapDat2           оличество столбцов
-    @param   boomCd           указатель на стадию анимации
+    @param   boomCd           стади€ анимации
+
     @usage @code
-             drawBoom(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             tank t;
+             t.x=3;
+             t.y=3;
+             int boomCd;
+             for (boomCd=40; boomCd>=0; boomCd--)
+                drawBoom(t, 800, 600, 10, 10, 10, boomCd);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
-    void drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int* boomCd);
+    void drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int boomCd);
 //! @}
 //}
 //=================================================================================================================
@@ -689,7 +722,6 @@
 //}----------------------------------------------------------------------------------------------------------------
     void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2);
 
-
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Logic
@@ -714,27 +746,245 @@
 //=================================================================================================================
 
 //=================================================================================================================
-//{          Interface
-//! @name    »нтерфейс
+//{ Interface
+//! @name »нтерфейс
 //=================================================================================================================
 
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief  ќтвечает за передвижение карты и еЄ размер
+    @param  *xOfCenter   указатель на X-координату центра карты
+    @param  *yOfCenter   указатель на Y-координату центра карты
+    @param  *mapSize     указатель на размер карты
+    @usage @code
+            double m;
+            int x,y;
+            interfaceOfMap(&m, &x, &y);
+@endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void interfaceOfMap(double* mapSize, int* xOfCenter, int* yOfCenter);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ‘ункци€, отвечающа€ за подсвечивание возможных ходов и атаку при нажатии на танк
+             вызывает функции tankMovementAvailability(), donotshootitisme() и drawMapGlowTank()
+
+    @param   t[]                            массив структур tank
+    @param   xOfCenter                      X-координата центра карты
+    @param   yOfCenter                      Y-координата центра карты
+    @param   mapSize                        –азмер карты
+    @param   mapDat1                         оличество строк
+    @param   mapDat2                         оличество столбцов
+    @param   boomCd                         указатель на стадию анимации
+    @param   tankAmount                     количество танков
+    @param   *timeMouseTankIgnore           указатель на врем€, когда нажатие мыши игнорируетс€ дабы избежать прокликивани€
+    @param   *timeMouseTankAttackIgnore     указатель на игнор мыши при выстреле танка
+    @param   turn                           чей сечас ход
+    @param   *boomed                        указатель на номер атакованного танка
+
+    @see     tankMovementAvailability(), donotshootitisme(), drawMapGlowTank(), mouseklikswhatcansupportustomovetank()
+
+    @usage @code
+                        //вр€д ли это вам понадобитс€, так что...
+                        //€ просто вырежу часть своего кода и вставлю сюда
+             ...        //здесь должна быть инициализаци€ массива t[] и переменных xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, tankAmount, timeMouseTankIgnore, timeMouseTankAttackIgnore, turn, boomed
+             interfaceTankMoveCheck(t, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, tankAmount, &timeMouseTankIgnore, &timeMouseTankAttackIgnore, nowIsTurnOf, &boomed);
+
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void interfaceTankMoveCheck(tank t[], int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int tankAmount, int* timeMouseTankIgnore, int* timeMouseTankAttackIgnore, int turn, int* boomed);
-    void donotshootitisme(tank t[],int tankAmount,int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int tankNumber, int* boomCd, int* boomed);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ѕодсвечивает клетки в которые данный танк сейчас может выстрелить
+    @param   t[]        массив структур tank
+    @param   tankAmount количество танков
+    @param   xOfCenter  X-координата центра карты
+    @param   yOfCenter  Y-координата центра карты
+    @param   mapSize    –азмер карты
+    @param   mapDat1     оличество строк
+    @param   mapDat2     оличество столбцов
+    @param   tankNumber номер танка
+    @param   *boomCd    указатель на игнор нажати€ атаки
+    @param   *boomed    указатель на номер атакованного танка
+
+    @usage @code
+             ...        //здесь должна быть инициализаци€ массива t[] и переменных tankAmount, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, tankNumber, timeMouseTankAttackIgnore, boomed
+             donotshootitisme(t, tankAmount, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, tankNumber, &timeMouseTankAttackIgnore, &boomed);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
+    void donotshootitisme(tank t[], int tankAmount,int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int tankNumber, int* boomCd, int* boomed);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   «ј—≈ –≈„≈Ќќ
+
+    @param   ss     таинственна€ переменна€
+    @usage @code
+             //?????
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     bool secretFunction(int* ss);
-    bool windowSizeChooseAndConfirmation(int* xWindowSize, int* yWindowSize);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ћен€ет значени€ разрешени€ игрового окна
+             ¬ызываетс€ в побочном окне, созданном функцией drawDefinitionChoose()
+
+    @param   *xWindowSize указатель на размер окна по x
+    @param   *yWindowSize указатель на размер окна по y
+
+    @see     drawDefinitionChoose(), windowSizeChooseAndConfirmation()
+
+    @usage @code
+             int xWindowSize,
+                 yWindowSize;
+             changeResolution(&xWindowSize, &yWindowSize);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void changeResolution(int* xWindowSize, int* yWindowSize);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ќтвечает за передвижение танка
+    @param   *t                         указатель на структуру tank
+    @param   xOfCenter                  X-координата центра карты
+    @param   yOfCenter                  Y-координата центра карты
+    @param   mapSize                    –азмер карты
+    @param   mapDat1                     оличество строк
+    @param   mapDat2                     оличество столбцов
+    @param   *timeMouseTankMoveIgnore   указатель на игнор мыши, когда движетс€ танк
+    @param   *timeMouseTankAttackIgnore указатель на игнор мыши при выстреле танка
+
+    @warning Ќа данный момент реализован лишь ход на одну клетку. Ѕолее дальние дистанции преодолевать не позвол€ет стрела в колене.  онец приключени€м!
+
+    @see     interfaceTankMoveCheck()
+
+    @usage @code
+             mouseklikswhatcansupportustomovetank(&t, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, &timeMouseTankMoveIgnore, &timeMouseTankIgnore);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void mouseklikswhatcansupportustomovetank(tank* t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int* timeMouseTankMoveIgnore, int* timeMouseTankIgnore);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ќтвечает за работу кнопки смены хода
+
+    @param   xWindowSize                размер окна по x
+    @param   yWindowSize                размер окна по y
+    @param   *timeMouseNewTurnIgnore    указатель на игнор повторного нажати€ кнопки: положительное значение переменной отключает работу функии - работает только при значении 0
+    @param   *turnChange                триггер смены хода
+
+    @usage @code
+             bool turnChange=0;
+             int  timeMouseNewTurnIgnore=0;
+             buttonEndTurn(800, 600, &timeMouseNewTurnIgnore, &turnChange);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void buttonEndTurn(int xWindowSize, int yWindowSize, int* timeMouseNewTurnIgnore, bool* turnChange);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ‘ункци€, отвечающа€ за кнопку выхода в меню
+    @param   xWindowSize    размер окна по x
+    @param   yWindowSize    размер окна по y
+    @param   *menuIn        триггер выхода в меню
+    @usage @code
+             bool menuIn=1;
+             buttonEndGame(800, 600, &menuIn);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void buttonEndGame(int xWindowSize, int yWindowSize, bool* menuIn);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   »нтерфейс кнопок прокачки характеристик
+             ¬ зависимости от наведени€ на кнопку и нажати€ вызывает функцию drawButtonAddPerk()
+
+    @param   xWindowSize                    размер окна по x
+    @param   yWindowSize                    размер окна по y
+    @param   *t                             указатель на структуру tank
+    @param   tankAmount                     количество танков
+    @param   tankNumber                     номер танка
+    @param   *mainButtonClicked             триггер нажати€ главной кнопки (кнопки распределени€ перков)
+    @param   *timeMouseButtonAddPerkIgnore  указатель на игнор нажати€ кнопок перков
+
+    @see drawButtonAddPerk()
+
+    @usage @code
+             tank t;
+             t.stat...=...;//инициализаци€ танка
+             bool mainButtonClicked=0;
+             int  timeMouseButtonAddPerkIgnore=0;
+             buttonsAddPerk(800, 600, &t, 1, 0, &mainButtonClicked, &timeMouseButtonAddPerkIgnore);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     void buttonsAddPerk(int xWindowSize, int yWindowSize, tank* t, int tankAmount, int tankNumber, bool* mainButtonClicked, int* timeMouseButtonAddPerkIgnore);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   ”ниверсальный алгоритм проверки наведени€ на круглые кнопки
+
+    @return  1, если на круглую кнопку навели курсор, и 0 в противном случае
+
+    @param   xCenter        координата по x центра круглой кнопки
+    @param   yWindowSize    координата по y центра круглой кнопки
+    @param   radius         радиус круглой кнопки
+
+    @usage @code
+             if (ultimateCircleButtonInterface(80, 80, 50))
+                txCircle(80, 80, 100);
+             else
+                txCircle(80, 80, 50);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     bool ultimateCircleButtonInterface(int xCenter, int yCenter, int radius);
+
+//{--------------------------------------------------------------------------------------------------------------Ч
+/*!
+    @ingroup Interface
+    @brief   »нтерфейс кнопок в главном меню
+
+    @param   xWindowSize    размер окна по x
+    @param   yWindowSize    размер окна по y
+    @param   *menuIn        триггер выхода в меню
+
+    @return  0, если нажата кнопка "¬ыход", 1 в противном случае
+
+    @usage @code
+    double a=12.4;
+    int b=13,c=43;
+    interfaceOfMap(*a,*b,*c);
+    @endcode
+*/
+//}--------------------------------------------------------------------------------------------------------------Ч
     bool interfaceMenuButtons(int xWindowSize, int yWindowSize, bool* menuIn);
 
 //{----------------------------------------------------------------------------------------------------------------
 /*!
     @ingroup Interface
-    @brief   ‘ункци€, в целом отвечающа€ за расстановку танков на игровое поле
+    @brief   ‘ункци€, отвечающа€ за расстановку танков на игровое поле (в начале игры и после воскрешени€)
              ¬ызывает chooseStartInitialise() и chooseStartClear()
 
     @param   distanceOfStart    ƒистанци€ между танками, которую необходимо держать при помещении танка на карту
@@ -1218,7 +1468,7 @@
                             t[tankNumber].position=3;
                             *boomed=i;
                             *boomCd=30;
-                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, boomCd);
+                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, *boomCd);
                         }
                     }
                 }
@@ -1250,7 +1500,7 @@
                             t[tankNumber].position=1;
                             *boomed=i;
                             *boomCd=30;
-                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, boomCd);
+                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, *boomCd);
                         }
                     }
                 }
@@ -1282,7 +1532,7 @@
                             t[tankNumber].position=2;
                             *boomed=i;
                             *boomCd=30;
-                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, boomCd);
+                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, *boomCd);
                         }
                     }
                 }
@@ -1314,7 +1564,7 @@
                             t[tankNumber].position=4;
                             *boomed=i;
                             *boomCd=30;
-                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, boomCd);
+                            drawBoom(t[i], xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, *boomCd);
                         }
                     }
                 }
@@ -1692,6 +1942,10 @@
                 break;
             default:
                 break;
+                //{
+                //   Ќе понравилось описание, что загл€нул сюда?
+                //   Ќу а что вы хотели? „иты просто так на дороге не вал€ютс€
+                //}
         }
         return 0;
     }
@@ -1987,6 +2241,8 @@
 
         if (t[turn].statSpeed==0&&t[turn].attacked==1)
             txSetFillColor(RGB(54, 194, 41));
+        else if (t[turn].statSpeed==t[turn].statSpeedMax&&t[turn].attacked==0)
+            txSetFillColor(RGB(187, 43, 43));
         else
             txSetFillColor(RGB(194, 194, 41));
         txLine(80, yWindowSize-50, 80, yWindowSize);
@@ -2272,21 +2528,21 @@
                     );
     }
 
-    void drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int* boomCd)
+    void drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int boomCd)
     {
         txSetColor(TX_BLACK);
         txSetFillColor(TX_WHITE);
-        txRectangle (   xOfCenter-(mapDat2-t.x*2-1)*mapSize-(*boomCd),
-                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+(*boomCd/2)-15,
-                        xOfCenter-(mapDat2-t.x*2-1)*mapSize-(*boomCd)+60,
-                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+25+(*boomCd/2)
+        txRectangle (   xOfCenter-(mapDat2-t.x*2-1)*mapSize-boomCd,
+                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+boomCd/2-15,
+                        xOfCenter-(mapDat2-t.x*2-1)*mapSize-boomCd+60,
+                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+25+boomCd/2
                     );
         txSetTextAlign(TA_CENTER);
         txSelectFont("Aharoni", 20);
-        txDrawText(     xOfCenter-(mapDat2-t.x*2-1)*mapSize-(*boomCd),
-                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+(*boomCd/2)-15,
-                        xOfCenter-(mapDat2-t.x*2-1)*mapSize-(*boomCd)+60,
-                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+25+(*boomCd/2),
+        txDrawText(     xOfCenter-(mapDat2-t.x*2-1)*mapSize-(boomCd),
+                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+(boomCd/2)-15,
+                        xOfCenter-(mapDat2-t.x*2-1)*mapSize-(boomCd)+60,
+                        yOfCenter-(mapDat1-t.y*2+1)*mapSize+25+(boomCd/2),
                         "BOOM");
     }
 
