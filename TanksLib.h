@@ -150,15 +150,20 @@
 /*!
     @ingroup Drawing
     @brief   ѕодсветка текущего местонахождени€ танка
+
     @param   t         ќбъект структуры tank
     @param   xOfCenter X-координата центра карты
     @param   yOfCenter Y-координата центра карты
     @param   mapSize   –азмер карты
     @param   mapDat1    оличество строк
     @param   mapDat2    оличество столбцов
+
     @see     tank, interfaceTankMoveCheck()
     @usage @code
-             drawMapGlowTank(800, 600);
+             tank t;
+             t.x=1;
+             t.y=2;
+             drawMapGlowTank(t, 300, 400, 10, 6, 6);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -189,7 +194,10 @@
     @param   mapDat2    оличество столбцов
     @warning <b>¬нимание!</b> Ётот танк будет рисоватьс€ относительно его местоположени€ на карте. ƒанную функцию использовать <b>исключительно</b> в ностальгических интересах и <b>исключительно</b> с разрешени€ автора библиотеки
     @usage @code
-             drawTank(800, 600);
+             tank t;
+             t.x=1;
+             t.y=2;
+             drawTank(t, 300, 400, 10, 6, 6);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -206,7 +214,7 @@
     @param   tankColour цвет танка
     @warning <b>¬нимание!</b>  k= радиус танка, не диаметр
     @usage @code
-             drawKekovuyTank(600, 600,100,1,TX_PINK);
+             drawKekovuyTank(600, 600, 100, 1, TX_PINK);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -220,7 +228,9 @@
     @param   *yWindowSize указатель на размер окна по Y
     @see     changeResolution()
     @usage @code
-             drawDefinitionChoose(800, 600);
+             int xWindowSize,
+                 yWindowSize;
+             drawDefinitionChoose(&xWindowSize, &yWindowSize);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -230,13 +240,25 @@
 /*!
     @ingroup Drawing
     @brief   –исование экрана параметров всех танков
+             ¬ызывает функции пиктограмм, такие как drawHP(), drawAttack(), etc.
     @param   t[]         массив структуры tank
     @param   tankAmount  количество танков
     @param   xWindowSize размер окна по X
     @param   yWindowSize размер окна по Y
     @param   turn        очерЄдность хода (чей сейчас ход)
+    @see     tank, drawHP(), drawAttack()
     @usage @code
-             drawMapLoad(800, 600);
+             int tankAmount = 2;
+             tank t[tankAmount];
+             for (i=0;i<tankAmount;i++) //объ€вление всех параметров танков, смотрите структуру tank
+             {
+                ...
+             }
+             for (i=0;i<tankAmount;i++)
+             {
+                drawTankStat(t, tankAmount, 800, 600, i);
+                txSleep(1000);
+             }
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -255,7 +277,10 @@
     @param   mapDat1      оличество строк
     @param   mapDat2      оличество столбцов
     @usage @code
-             drawTankMovementGlow(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             tank t;
+             t.x=0;
+             t.y=0;
+             drawTankMovementGlow(1, t.x, t.y, 300, 400, 10, 10, 10);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -273,7 +298,10 @@
     @param   mapDat1      оличество строк
     @param   mapDat2      оличество столбцов
     @usage @code
-             drawTankMovementGlow(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             tank t;
+             t.x=0;
+             t.y=0;
+             drawTankAttackGlow(1, t.x, t.y, 300, 400, 10, 10, 10);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -318,7 +346,7 @@
     @param   XWINDOWSIZE            размер окна по x
     @param   YWINDOWSIZE            размер окна по y
     @usage @code
-             drawMenuk(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawMenu(800, 600);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -334,7 +362,7 @@
     @param   fillColor          цвет заполнени€ внешней части кнопки
     @param   crossColor         цвет заполнени€ внутренней части кнопки
     @usage @code
-             drawButtonForMenuExit(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawButtonForMenuExit(400, 300, 40, TX_GREY, TX_WHITE);
     @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -349,7 +377,7 @@
     @param   Color               цвет заполнени€ кнопки
     @param   notStartButContinue если  notStartButContinue=1, то игра продолжаетс€, а не начинаетс€ заново
     @usage @code
-             drawButtonForMenuStartGame(800, 600,“”“  ≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ );
+             drawButtonForMenuStartGame(400, 300, );
    @endcode
 */
 //}----------------------------------------------------------------------------------------------------------------
@@ -660,6 +688,28 @@
 */
 //}----------------------------------------------------------------------------------------------------------------
     void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2);
+
+
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+    @brief   ќтвечает за файл pcPref.txt, в который подгружаетс€ разрешение окна
+             ¬ызывает функцию DrawDefinitionChoose()
+
+    @param   xWindowSize    размер окна по x
+    @param   yWindowSize    размер окна по y
+
+    @see     drawDefinitionChoose(), changeResolution()
+
+    @usage @code
+            mapDat1=7;
+            mapDat2=7;
+            chooseStartInitialise(2, mapDat1, mapDat2); //генерирует мусор... необходимый дл€ работы!
+            chooseStartClear(mapDat1, mapDat2);         //так и не поработав с мусором, чистим его. «ато пример привЄл
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    bool windowSizeChooseAndConfirmation(int* xWindowSize, int* yWindowSize);
 //}
 //=================================================================================================================
 
@@ -718,6 +768,42 @@
 
     //logic
 
+    bool windowSizeChooseAndConfirmation(int* xWindowSize, int* yWindowSize)
+    {
+        ifstream in;
+        ofstream out;
+        string str;
+        in.open("pcPref.txt");
+        getline(in, str);
+        if (str=="//This file is for saving your PC's preferences like screen resolution, etc.")
+        {
+            while (str.length()!=0)
+            {
+                getline(in, str);
+                if (str.substr(0, 20)=="screenDefinitionX = ")
+                {
+                    str.erase(0, 20);
+                    *xWindowSize = atoi(str.c_str());
+                }
+                else if (str.substr(0, 20)=="screenDefinitionY = ")
+                {
+                    str.erase(0, 20);
+                    *yWindowSize = atoi(str.c_str());
+                }
+            }
+            in.close();
+            return 1;
+        }
+        else
+        {
+            in.close();
+            out.open("pcPref.txt");
+            out << "//This file is for saving your PC's preferences like screen resolution, etc.\n";
+            drawDefinitionChoose(xWindowSize, yWindowSize);
+            out << "screenDefinitionX = " << *xWindowSize <<endl << "screenDefinitionY = " << *yWindowSize << endl;
+            return 0;
+        }
+    }
 
     //interface
 
@@ -1237,42 +1323,6 @@
         }
     }
 
-    bool windowSizeChooseAndConfirmation(int* xWindowSize, int* yWindowSize)
-    {
-        ifstream in;
-        ofstream out;
-        string str;
-        in.open("pcPref.txt");
-        getline(in, str);
-        if (str=="//This file is for saving your PC's preferences like screen resolution, etc.")
-        {
-            while (str.length()!=0)
-            {
-                getline(in, str);
-                if (str.substr(0, 20)=="screenDefinitionX = ")
-                {
-                    str.erase(0, 20);
-                    *xWindowSize = atoi(str.c_str());
-                }
-                else if (str.substr(0, 20)=="screenDefinitionY = ")
-                {
-                    str.erase(0, 20);
-                    *yWindowSize = atoi(str.c_str());
-                }
-            }
-            in.close();
-            return 1;
-        }
-        else
-        {
-            in.close();
-            out.open("pcPref.txt");
-            out << "//This file is for saving your PC's preferences like screen resolution, etc.\n";
-            drawDefinitionChoose(xWindowSize, yWindowSize);
-            out << "screenDefinitionX = " << *xWindowSize <<endl << "screenDefinitionY = " << *yWindowSize << endl;
-            return 0;
-        }
-    }
 
     void changeResolution(int* xWindowSize, int* yWindowSize)
     {
