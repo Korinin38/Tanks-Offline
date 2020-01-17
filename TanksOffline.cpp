@@ -13,6 +13,7 @@
             mapDat2=10,
             po=0,
             pi=0,
+            pe=0,
             tankAmount=2,
             timeMouseTankIgnore=0,
             timeMouseTankMoveIgnore=0,
@@ -35,16 +36,17 @@
             t[0].color=TX_BLUE;
             t[1].color=TX_RED;
 
+        txBegin();
         if (!windowSizeChooseAndConfirmation(&xWindowSize, &yWindowSize)) return 0;
         srand(time(NULL));
         txCreateWindow (xWindowSize, yWindowSize);
-        txBegin();
         xOfCenter=xWindowSize/2;
         yOfCenter=yWindowSize/2;
         drawWelcome(xWindowSize, yWindowSize);
         txSleep(1000);
-        while(interfaceMenuButtons(xWindowSize, yWindowSize, &menuIn)&&!GetAsyncKeyState(VK_ESCAPE))
+        do
         {
+            txSleep(10);
             drawMenu(xWindowSize, yWindowSize);
             drawButtonForMenuStartGame(xWindowSize/4, yWindowSize/2, RGB(16, 127, 135), iSwearItIsLast);
             drawButtonForMenuMapRedactor(xWindowSize*3/4, yWindowSize/2, RGB(16, 127, 135), true);
@@ -170,6 +172,7 @@
                         if (secretFunction(&po)) pi=1;
                         mapBoundController(&xOfCenter, &yOfCenter, mapDat1, mapDat2, mapSize, xWindowSize, yWindowSize);
                     }
+                    if(secretFunction1(&pe)) t[nowIsTurnOf].attacked=0;
                     //time of ignore
                     if (timeMouseTankIgnore>0) timeMouseTankIgnore--;
                     if (timeMouseTankMoveIgnore>0)timeMouseTankMoveIgnore--;
@@ -186,8 +189,8 @@
                     }
                 }
             }
-            txSleep(10);
         }
-        //drawGTHOH(xWindowSize, yWindowSize);
+        while(interfaceMenuButtons(xWindowSize, yWindowSize, &menuIn)&&!GetAsyncKeyState(VK_ESCAPE));
+        drawGTHOH(xWindowSize, yWindowSize);
         return 0;
     }
