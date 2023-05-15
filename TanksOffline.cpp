@@ -172,7 +172,7 @@
                         if (secretFunction(&po)) pi=1;
                         mapBoundController(&xOfCenter, &yOfCenter, mapDat1, mapDat2, mapSize, xWindowSize, yWindowSize);
                     }
-                    if(secretFunction1(&pe)) t[nowIsTurnOf].attacked=0;
+                    // if(secretFunction1(&pe)) t[nowIsTurnOf].attacked=0;
                     //time of ignore
                     if (timeMouseTankIgnore>0) timeMouseTankIgnore--;
                     if (timeMouseTankMoveIgnore>0)timeMouseTankMoveIgnore--;
