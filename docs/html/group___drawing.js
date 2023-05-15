@@ -1,0 +1,28 @@
+var group___drawing =
+[
+    [ "drawAttack", "group___drawing.html#gad4bd211e01e7ddb681171dd6b654ce45", null ],
+    [ "drawAvailablePlaceToStart", "group___drawing.html#ga776f4914a4809a8dc84ce4937a744eb1", null ],
+    [ "drawBoom", "group___drawing.html#ga91bba306586ffcb313fe4a485364d349", null ],
+    [ "drawBoom", "group___drawing.html#gaa5b9f9118d26d01e3f11c0e4b1403417", null ],
+    [ "drawButtonAddPerk", "group___drawing.html#gabd552d26260d773ca26ddedb9c23ed7f", null ],
+    [ "drawButtonForMenuExit", "group___drawing.html#ga46036dd7ddf4ba9132adda91f0c51059", null ],
+    [ "drawButtonForMenuMapRedactor", "group___drawing.html#ga419620fa0219bfd9478432c8ab98855d", null ],
+    [ "drawButtonForMenuStartGame", "group___drawing.html#ga3b7244355fd3a97c81917a7149c56c03", null ],
+    [ "drawDefinitionChoose", "group___drawing.html#ga7df718e295446f16026f5d872f91de93", null ],
+    [ "drawGTHOH", "group___drawing.html#gaff16c87893541942c51e47bc40ce55c8", null ],
+    [ "drawHP", "group___drawing.html#ga2680cab0e6f9ad501e18b955fa753d9f", null ],
+    [ "drawKekovuyTank", "group___drawing.html#ga46ff0ebf32de7f232d9e2e6a3ea3be17", null ],
+    [ "drawMap", "group___drawing.html#ga052b9781620d4601e90815a7da491b89", null ],
+    [ "drawMapGlowAvailable", "group___drawing.html#gad1cc3844dbdda32954cbe8424858ea1c", null ],
+    [ "drawMapGlowTank", "group___drawing.html#gad2011c5785328b4d989aad13684454ea", null ],
+    [ "drawMapInit", "group___drawing.html#ga5f8d24610b071a97cc57385b374aa9a3", null ],
+    [ "drawMapLoad", "group___drawing.html#ga0dde0869749325e811c16c944e2cec88", null ],
+    [ "drawMapSaveFound", "group___drawing.html#ga06f575a2501b5089ebb873aeb59a7e97", null ],
+    [ "drawMenu", "group___drawing.html#ga073845dffa3dea25babfec1367988863", null ],
+    [ "drawNewTurn", "group___drawing.html#gae580124a2ad219a83bacaea58d562889", null ],
+    [ "drawTank", "group___drawing.html#ga4768302aa890342a16a1430ac6c6844a", null ],
+    [ "drawTankAttackGlow", "group___drawing.html#gae8cb7cb834ac1dca1abd1f4fe490e42b", null ],
+    [ "drawTankMovementGlow", "group___drawing.html#gab9e768cc934469adbc68ae867930ec81", null ],
+    [ "drawTankStat", "group___drawing.html#gaffc60f5ae12d3fee1f6404c52ec3929d", null ],
+    [ "drawWelcome", "group___drawing.html#gaaba1d6403b724c2508a62afca5a28f63", null ]
+];
