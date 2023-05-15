@@ -23,7 +23,7 @@
             timeMouseButtonAddPerkIgnore=0,
             nowIsTurnOf,
             recurrectionTime=3,
-            distanceOfStart=min(mapDat1, mapDat2)/4,
+            distanceOfStart=std::min(mapDat1, mapDat2)/4,
             boomed=-1;
 
         bool    menuIn=0,
