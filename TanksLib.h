@@ -1336,6 +1336,7 @@
         {
             c[i]=s[i];
         }
+        c[s.length()] = '\0';
     }
 
     void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2)
@@ -2265,36 +2266,36 @@
             {
                 txSetTextAlign(TA_LEFT);
                 s="DEAD";
-                char c5[s.length()];
+                char c5[s.length() + 1];
                 toMasOfChar(s, c5);
                 txTextOut(20, (yWindowSize-50)/tankAmount*(i+0.1), c5);
                 s="Respawn: "+toString(t[i].deathTime)+" turns";
-                char c6[s.length()];
+                char c6[s.length() + 1];
                 toMasOfChar(s, c6);
                 txTextOut(10, (yWindowSize-50)/tankAmount-50, c5);
             }
             txSetTextAlign(TA_RIGHT);
             s=toString(t[i].distributionPoints)+" points";
-            char c0[s.length()];
+            char c0[s.length() + 1];
             toMasOfChar(s, c0);
             txTextOut(xWindowSize/4-20, (yWindowSize-50)/tankAmount*(i+0.05), c0);
             txSetTextAlign(TA_LEFT);
             s=toString(t[i].statHealth)+'/'+toString(t[i].statHealthMax);
-            char c1[s.length()];
+            char c1[s.length() + 1];
             toMasOfChar(s, c1);
             txTextOut(xWindowSize/10, (yWindowSize-50)/tankAmount*(i+0.25), c1);
             drawHP(xWindowSize/10-15, (yWindowSize-50)/tankAmount*(i+0.25)+11, 11);
             s=toString (t[i].statAttack);
-            char c2[s.length()];
+            char c2[s.length() + 1];
             toMasOfChar(s, c2);
             txTextOut(xWindowSize/12, (yWindowSize-50)/tankAmount*(i+0.5), c2);
             drawAttack(xWindowSize/12-15, (yWindowSize-50)/tankAmount*(i+0.5)+11, 12);
             s=toString(t[i].statSpeed)+'/'+toString(t[i].statSpeedMax);
-            char c3[s.length()];
+            char c3[s.length() + 1];
             toMasOfChar(s, c3);
             txTextOut(xWindowSize/12, (yWindowSize-50)/tankAmount*(i+0.75), c3);
             s=toString(t[i].statAim);
-            char c4[s.length()];
+            char c4[s.length() + 1];
             toMasOfChar(s, c4);
             txTextOut(xWindowSize/4-20, (yWindowSize-50)/tankAmount*(i+0.75), c4);
         }
@@ -2346,7 +2347,7 @@
             s="Player"+toString (number)+", choose a cell to spawn";
         else
             s="Player"+toString (number)+", Your turn!";
-        char c[s.length()];
+        char c[s.length() + 1];
         toMasOfChar(s, c);
         txSetTextAlign(TA_CENTER);
         txSelectFont("Aharoni", 40);
