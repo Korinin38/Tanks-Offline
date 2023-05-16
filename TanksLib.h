@@ -511,6 +511,22 @@
 //! @name    Логика
 //=================================================================================================================
 
+//{----------------------------------------------------------------------------------------------------------------
+/*!
+    @ingroup Logic
+    @brief   Проверка вхождения double-величины в целочисленный диапазон
+    @param   x    Значение, которое должно входить (или не входить) в диапазон
+    @param   a    Нижнее значение диапазона
+    @param   b    Верхнее значение диапазона
+    @usage @code
+            if (In_d(x_coord, 0, 200)
+            {
+                do_stuff();
+            }
+    @endcode
+*/
+//}----------------------------------------------------------------------------------------------------------------
+    bool In_d(double x, int a, int b);
 
 //{----------------------------------------------------------------------------------------------------------------
 /*!
@@ -1101,12 +1117,16 @@
         else return 0;
     }
 
+    
+    bool In_d(double x, int a, int b) 
+    {
+        TX_ASSERT (a <= b);
 
+        return ((double)a <= x) && (x <= (double)b);
+    }
 
 
     int graph[1000000][5];             //^0 >1 v2 <3 checked - 4
-
-
 
 
     bool correctMapChecker(bool onlyCheck, int mapDat1, int mapDat2)
@@ -1402,12 +1422,12 @@
                     tankMovementAvailability(t[i].y*mapDat2+t[i].x, t[i].statSpeed, (turn==i), xOfCenter, yOfCenter, mapDat1, mapDat2, mapSize, 1);
                     donotshootitisme(t, tankAmount, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2, turn, timeMouseTankAttackIgnore, boomed);
                 }
-                if (In( txMouseX(),
+                if (In_d( txMouseX(),
                         (int)(xOfCenter-(mapDat2-t[i].x*2+1)*mapSize),
                         (int)(xOfCenter-(mapDat2-t[i].x*2-1)*mapSize)
                       )
                     &&
-                    In( txMouseY(),
+                    In_d( txMouseY(),
                         (int)(yOfCenter-(mapDat1-t[i].y*2+1)*mapSize),
                         (int)(yOfCenter-(mapDat1-t[i].y*2-1)*mapSize)
                       )
@@ -1445,12 +1465,12 @@
             {
                 drawTankAttackGlow(t[tankNumber].x,t[tankNumber].y+range, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2);
                 if
-                (In ( txMouseX(),
+                (In_d ( txMouseX(),
                 (int)(xOfCenter-(mapDat2-t[tankNumber].x*2+1)*mapSize+2),
                 (int)(xOfCenter-(mapDat2-t[tankNumber].x*2-1)*mapSize-2)
                 )
                 &&
-                In ( txMouseY(),
+                In_d ( txMouseY(),
                 (int)(yOfCenter-(mapDat1-(t[tankNumber].y+range)*2+1)*mapSize+2),
                 (int)(yOfCenter-(mapDat1-(t[tankNumber].y+range)*2-1)*mapSize-2)
                 )
@@ -1477,12 +1497,12 @@
             if(mapMas[t[tankNumber].y-range][t[tankNumber].x]==2 and x2)
             {
                 drawTankAttackGlow(t[tankNumber].x,t[tankNumber].y-range, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2);
-                if  (In ( txMouseX(),
+                if  (In_d ( txMouseX(),
                         (int)(xOfCenter-(mapDat2-t[tankNumber].x*2+1)*mapSize+2),
                         (int)(xOfCenter-(mapDat2-t[tankNumber].x*2-1)*mapSize-2)
                         )
                         &&
-                        In ( txMouseY(),
+                        In_d ( txMouseY(),
                         (int)(yOfCenter-(mapDat1-(t[tankNumber].y-range)*2+1)*mapSize+2),
                         (int)(yOfCenter-(mapDat1-(t[tankNumber].y-range)*2-1)*mapSize-2)
                         )
@@ -1509,12 +1529,12 @@
             if(mapMas[t[tankNumber].y][t[tankNumber].x+range]==2 and x3==1)
             {
                 drawTankAttackGlow(t[tankNumber].x+range,t[tankNumber].y, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2);
-                if  (   In( txMouseX(),
+                if  (   In_d( txMouseX(),
                             (int)(xOfCenter-(mapDat2-(t[tankNumber].x+range)*2+1)*mapSize+2),
                             (int)(xOfCenter-(mapDat2-(t[tankNumber].x+range)*2-1)*mapSize-2)
                           )
                         &&
-                        In( txMouseY(),
+                        In_d( txMouseY(),
                             (int)(yOfCenter-(mapDat1-(t[tankNumber].y)*2+1)*mapSize+2),
                             (int)(yOfCenter-(mapDat1-(t[tankNumber].y)*2-1)*mapSize-2)
                           )
@@ -1541,12 +1561,12 @@
             if(mapMas[t[tankNumber].y][t[tankNumber].x-range]==2 and x4==1)
             {
                 drawTankAttackGlow(t[tankNumber].x-range,t[tankNumber].y, xOfCenter, yOfCenter, mapSize, mapDat1, mapDat2);
-                if( In( txMouseX(),
+                if( In_d( txMouseX(),
                         (int)(xOfCenter-(mapDat2-(t[tankNumber].x-range)*2+1)*mapSize+2),
                         (int)(xOfCenter-(mapDat2-(t[tankNumber].x-range)*2-1)*mapSize-2)
                       )
                     &&
-                    In( txMouseY(),
+                    In_d( txMouseY(),
                         (int)(yOfCenter-(mapDat1-(t[tankNumber].y)*2+1)*mapSize+2),
                         (int)(yOfCenter-(mapDat1-(t[tankNumber].y)*2-1)*mapSize-2)
                         )
@@ -1602,12 +1622,12 @@
     void mouseklikswhatcansupportustomovetank(tank* t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int* timeMouseTankMoveIgnore, int* timeMouseTankIgnore)
     {
         if
-        (In  (   txMouseX(),
+        (In_d  (   txMouseX(),
                     (int)(xOfCenter-(mapDat2-(*t).x*2+1)*mapSize+2),
                     (int)(xOfCenter-(mapDat2-(*t).x*2-1)*mapSize-2)
                 )
             &&
-            In  (   txMouseY(),
+            In_d  (   txMouseY(),
                     (int)(yOfCenter-(mapDat1-((*t).y-1)*2+1)*mapSize+2),
                     (int)(yOfCenter-(mapDat1-((*t).y-1)*2-1)*mapSize-2)
                 )
@@ -1631,12 +1651,12 @@
         }
 
         if
-        (In  (   txMouseX(),
+        (In_d  (   txMouseX(),
                     (int)(xOfCenter-(mapDat2-(*t).x*2+1)*mapSize+2),
                     (int)(xOfCenter-(mapDat2-(*t).x*2-1)*mapSize-2)
                 )
             &&
-            In  (   txMouseY(),
+            In_d  (   txMouseY(),
                     (int)(yOfCenter-(mapDat1-((*t).y+1)*2+1)*mapSize+2),
                     (int)(yOfCenter-(mapDat1-((*t).y+1)*2-1)*mapSize-2)
                 )
@@ -1659,12 +1679,12 @@
         (*timeMouseTankIgnore)+=3;
         }
         if
-        (In  (   txMouseX(),
+        (In_d  (   txMouseX(),
                     (int)(xOfCenter-(mapDat2-((*t).x-1)*2+1)*mapSize+2),
                     (int)(xOfCenter-(mapDat2-((*t).x-1)*2-1)*mapSize-2)
                 )
             &&
-            In  (   txMouseY(),
+            In_d  (   txMouseY(),
                     (int)(yOfCenter-(mapDat1-((*t).y)*2+1)*mapSize+2),
                     (int)(yOfCenter-(mapDat1-((*t).y)*2-1)*mapSize-2)
                 )
@@ -1687,12 +1707,12 @@
         (*timeMouseTankIgnore)+=3;
         }
         if
-        (In  (   txMouseX(),
+        (In_d  (   txMouseX(),
                     (int)(xOfCenter-(mapDat2-((*t).x+1)*2+1)*mapSize+2),
                     (int)(xOfCenter-(mapDat2-((*t).x+1)*2-1)*mapSize-2)
                 )
             &&
-            In  (   txMouseY(),
+            In_d  (   txMouseY(),
                     (int)(yOfCenter-(mapDat1-((*t).y)*2+1)*mapSize+2),
                     (int)(yOfCenter-(mapDat1-((*t).y)*2-1)*mapSize-2)
                 )
@@ -1722,13 +1742,13 @@
         if (
             txMouseButtons() & 1
             &&
-            In  (
+            In_d  (
                     txMouseX(),
                     XCENTER-75,
                     XCENTER+75
                 )
             &&
-            In  (
+            In_d  (
                     txMouseY(),
                     YCENTER-50,
                     YCENTER+10
@@ -1744,13 +1764,13 @@
         if (
             txMouseButtons() & 1
             &&
-            In  (
+            In_d  (
                     txMouseX(),
                     XCENTER-75,
                     XCENTER+70
                 )
             &&
-            In  (
+            In_d  (
                     txMouseY(),
                     YCENTER-30,
                     YCENTER+30
@@ -1915,12 +1935,12 @@
     {
         if  (txMouseButtons()&1
             &&
-            In  (txMouseX(),
+            In_d  (txMouseX(),
                 xWindowSize/4-60,
                 xWindowSize/4+60
                 )
             &&
-            In  (txMouseY(),
+            In_d  (txMouseY(),
                 yWindowSize/2-20,
                 yWindowSize/2+20
                 )
