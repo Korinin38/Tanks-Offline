@@ -2,7 +2,6 @@ var group___drawing =
 [
     [ "drawAttack", "group___drawing.html#gad4bd211e01e7ddb681171dd6b654ce45", null ],
     [ "drawAvailablePlaceToStart", "group___drawing.html#ga776f4914a4809a8dc84ce4937a744eb1", null ],
-    [ "drawBoom", "group___drawing.html#ga91bba306586ffcb313fe4a485364d349", null ],
     [ "drawBoom", "group___drawing.html#gaa5b9f9118d26d01e3f11c0e4b1403417", null ],
     [ "drawButtonAddPerk", "group___drawing.html#gabd552d26260d773ca26ddedb9c23ed7f", null ],
     [ "drawButtonForMenuExit", "group___drawing.html#ga46036dd7ddf4ba9132adda91f0c51059", null ],

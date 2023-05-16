@@ -35,6 +35,7 @@ var _tanks_lib_8h =
     [ "drawTankMovementGlow", "group___drawing.html#gab9e768cc934469adbc68ae867930ec81", null ],
     [ "drawTankStat", "group___drawing.html#gaffc60f5ae12d3fee1f6404c52ec3929d", null ],
     [ "drawWelcome", "group___drawing.html#gaaba1d6403b724c2508a62afca5a28f63", null ],
+    [ "In_d", "group___logic.html#ga5d760a2c92de2733eff0561ee43f8e80", null ],
     [ "interfaceMenuButtons", "group___interface.html#ga2e9525207205358f9864611bef368486", null ],
     [ "interfaceOfMap", "_tanks_lib_8h.html#ab726955b0dbd5c6b26f914ca2b7f2f02", null ],
     [ "interfaceTankMoveCheck", "group___interface.html#ga962f66217357c9fcaff4b36867fe1370", null ],

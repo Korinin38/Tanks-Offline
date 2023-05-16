@@ -95,6 +95,9 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Логика</h2></td></tr>
+<tr class="memitem:ga5d760a2c92de2733eff0561ee43f8e80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___logic.html#ga5d760a2c92de2733eff0561ee43f8e80">In_d</a> (double x, int a, int b)</td></tr>
+<tr class="memdesc:ga5d760a2c92de2733eff0561ee43f8e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка вхождения double-величины в целочисленный диапазон  <br /></td></tr>
+<tr class="separator:ga5d760a2c92de2733eff0561ee43f8e80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga648129945d5250a622a26f883744574b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___logic.html#ga648129945d5250a622a26f883744574b">mapInitializer</a> (bool sav, int *mapDat1, int *mapDat2)</td></tr>
 <tr class="memdesc:ga648129945d5250a622a26f883744574b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация карты При наличии сохранённой карты выгружает её из файла, иначе генерирует случайную карту (несвязную)  <br /></td></tr>
 <tr class="separator:ga648129945d5250a622a26f883744574b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,7 +160,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1, если точка является связной, и 0 в противном случае </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>mapMas[][], graph[][5], <a class="el" href="group___logic.html#ga3049642284f0414b802497e94801411d" title="Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным после...">correctMapChecker()</a> @usage <div class="fragment"><div class="line"><a class="code hl_function" href="group___logic.html#ga5b0190432685f266e61eae0884834f8f">checkThisPoint</a>(25);</div>
-<div class="ttc" id="agroup___logic_html_ga5b0190432685f266e61eae0884834f8f"><div class="ttname"><a href="group___logic.html#ga5b0190432685f266e61eae0884834f8f">checkThisPoint</a></div><div class="ttdeci">bool checkThisPoint(int n)</div><div class="ttdoc">Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгорит...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1272</div></div>
+<div class="ttc" id="agroup___logic_html_ga5b0190432685f266e61eae0884834f8f"><div class="ttname"><a href="group___logic.html#ga5b0190432685f266e61eae0884834f8f">checkThisPoint</a></div><div class="ttdeci">bool checkThisPoint(int n)</div><div class="ttdoc">Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгорит...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1292</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
@@ -201,8 +204,8 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <div class="line">mapDat2=7;</div>
 <div class="line"><a class="code hl_function" href="group___logic.html#gaac1436333cdd7fddaa447a4f8922de4d">chooseStartInitialise</a>(2, mapDat1, mapDat2); <span class="comment">//генерирует мусор... необходимый для работы!</span></div>
 <div class="line"><a class="code hl_function" href="group___logic.html#gaeb5278c1f1a11c92f348614887f97f69">chooseStartClear</a>(mapDat1, mapDat2);         <span class="comment">//так и не поработав с мусором, чистим его. Зато пример привёл</span></div>
-<div class="ttc" id="agroup___logic_html_gaac1436333cdd7fddaa447a4f8922de4d"><div class="ttname"><a href="group___logic.html#gaac1436333cdd7fddaa447a4f8922de4d">chooseStartInitialise</a></div><div class="ttdeci">void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2)</div><div class="ttdoc">Подготовка мусора в массиве mapMas[][] для работы chooseStart() автоматически вызывается в самом choo...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1341</div></div>
-<div class="ttc" id="agroup___logic_html_gaeb5278c1f1a11c92f348614887f97f69"><div class="ttname"><a href="group___logic.html#gaeb5278c1f1a11c92f348614887f97f69">chooseStartClear</a></div><div class="ttdeci">void chooseStartClear(int mapDat1, int mapDat2)</div><div class="ttdoc">Очистка следов после chooseStart() автоматически вызывается в самом chooseStart()</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1362</div></div>
+<div class="ttc" id="agroup___logic_html_gaac1436333cdd7fddaa447a4f8922de4d"><div class="ttname"><a href="group___logic.html#gaac1436333cdd7fddaa447a4f8922de4d">chooseStartInitialise</a></div><div class="ttdeci">void chooseStartInitialise(int distanceOfStart, int mapDat1, int mapDat2)</div><div class="ttdoc">Подготовка мусора в массиве mapMas[][] для работы chooseStart() автоматически вызывается в самом choo...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1362</div></div>
+<div class="ttc" id="agroup___logic_html_gaeb5278c1f1a11c92f348614887f97f69"><div class="ttname"><a href="group___logic.html#gaeb5278c1f1a11c92f348614887f97f69">chooseStartClear</a></div><div class="ttdeci">void chooseStartClear(int mapDat1, int mapDat2)</div><div class="ttdoc">Очистка следов после chooseStart() автоматически вызывается в самом chooseStart()</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1383</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -298,8 +301,57 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1, если карта является сязной, и 0 в противном случае </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>mapMas[][], graph[][5], <a class="el" href="group___logic.html#ga5b0190432685f266e61eae0884834f8f" title="Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгорит...">checkThisPoint()</a> @usage <div class="fragment"><div class="line"><a class="code hl_function" href="group___logic.html#ga3049642284f0414b802497e94801411d">correctMapChecker</a>(0, 10, 10);</div>
-<div class="ttc" id="agroup___logic_html_ga3049642284f0414b802497e94801411d"><div class="ttname"><a href="group___logic.html#ga3049642284f0414b802497e94801411d">correctMapChecker</a></div><div class="ttdeci">bool correctMapChecker(bool onlyCheck, int mapDat1, int mapDat2)</div><div class="ttdoc">Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным после...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1112</div></div>
+<div class="ttc" id="agroup___logic_html_ga3049642284f0414b802497e94801411d"><div class="ttname"><a href="group___logic.html#ga3049642284f0414b802497e94801411d">correctMapChecker</a></div><div class="ttdeci">bool correctMapChecker(bool onlyCheck, int mapDat1, int mapDat2)</div><div class="ttdoc">Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным после...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1132</div></div>
 </div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="ga5d760a2c92de2733eff0561ee43f8e80" name="ga5d760a2c92de2733eff0561ee43f8e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d760a2c92de2733eff0561ee43f8e80">&#9670;&#160;</a></span>In_d()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool In_d </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка вхождения double-величины в целочисленный диапазон </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Значение, которое должно входить (или не входить) в диапазон </td></tr>
+    <tr><td class="paramname">a</td><td>Нижнее значение диапазона </td></tr>
+    <tr><td class="paramname">b</td><td>Верхнее значение диапазона @usage <div class="fragment"><div class="line"><span class="keywordflow">if</span> (<a class="code hl_function" href="group___logic.html#ga5d760a2c92de2733eff0561ee43f8e80">In_d</a>(x_coord, 0, 200)</div>
+<div class="line">{</div>
+<div class="line">    do_stuff();</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup___logic_html_ga5d760a2c92de2733eff0561ee43f8e80"><div class="ttname"><a href="group___logic.html#ga5d760a2c92de2733eff0561ee43f8e80">In_d</a></div><div class="ttdeci">bool In_d(double x, int a, int b)</div><div class="ttdoc">Проверка вхождения double-величины в целочисленный диапазон</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1121</div></div>
+</div><!-- fragment --> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -382,7 +434,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <div class="line">    yOfCenter++;</div>
 <div class="line">    <a class="code hl_function" href="group___logic.html#ga44b923e58f9afe784a5a7f57bd987cee">mapBoundController</a>(&amp;xOfCenter, &amp;yOfCenter, 6, 6, 10, xWindowSize, yWindowSize); <span class="comment">//теперь камера остановится вовремя, и мы будем видеть её всегда</span></div>
 <div class="line">}</div>
-<div class="ttc" id="agroup___logic_html_ga44b923e58f9afe784a5a7f57bd987cee"><div class="ttname"><a href="group___logic.html#ga44b923e58f9afe784a5a7f57bd987cee">mapBoundController</a></div><div class="ttdeci">void mapBoundController(int *xOfCenter, int *yOfCenter, int mapDat1, int mapDat2, double mapSize, int xWindowSize, int yWindowSize)</div><div class="ttdoc">Осуществляет контроль над камерой Блокирует возможность камеры улететь далеко-далеко от карты и потом...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1287</div></div>
+<div class="ttc" id="agroup___logic_html_ga44b923e58f9afe784a5a7f57bd987cee"><div class="ttname"><a href="group___logic.html#ga44b923e58f9afe784a5a7f57bd987cee">mapBoundController</a></div><div class="ttdeci">void mapBoundController(int *xOfCenter, int *yOfCenter, int mapDat1, int mapDat2, double mapSize, int xWindowSize, int yWindowSize)</div><div class="ttdoc">Осуществляет контроль над камерой Блокирует возможность камеры улететь далеко-далеко от карты и потом...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1307</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -428,7 +480,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd>mapMas[][] @usage <div class="fragment"><div class="line"><a class="code hl_function" href="group___drawing.html#ga052b9781620d4601e90815a7da491b89">drawMap</a>(500, 300, 10, 6, 6);</div>
-<div class="ttc" id="agroup___drawing_html_ga052b9781620d4601e90815a7da491b89"><div class="ttname"><a href="group___drawing.html#ga052b9781620d4601e90815a7da491b89">drawMap</a></div><div class="ttdeci">void drawMap(int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2)</div><div class="ttdoc">Отрисовка карты Рисует карту, основываясь на структуре mapMas[][].</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1977</div></div>
+<div class="ttc" id="agroup___drawing_html_ga052b9781620d4601e90815a7da491b89"><div class="ttname"><a href="group___drawing.html#ga052b9781620d4601e90815a7da491b89">drawMap</a></div><div class="ttdeci">void drawMap(int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2)</div><div class="ttdoc">Отрисовка карты Рисует карту, основываясь на структуре mapMas[][].</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1998</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
@@ -451,7 +503,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <p>Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгоритм, необходимый для работы функции <b><a class="el" href="group___logic.html#ga3049642284f0414b802497e94801411d" title="Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным после...">correctMapChecker()</a></b> </p>
 <dl class="section return"><dt>Returns</dt><dd>1, если точка является связной, и 0 в противном случае </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>mapMas[][], graph[][5], <a class="el" href="group___logic.html#ga3049642284f0414b802497e94801411d" title="Создание графа на основе карты из структуры mapMas[][] и проверка его на связность (с возможным после...">correctMapChecker()</a> @usage <div class="fragment"><div class="line"><a class="code hl_function" href="group___logic.html#ga4150d6317509c7dfcc1065add526b957">mapSavedChecker</a>(); <span class="comment">//Ну да, всё так просто</span></div>
-<div class="ttc" id="agroup___logic_html_ga4150d6317509c7dfcc1065add526b957"><div class="ttname"><a href="group___logic.html#ga4150d6317509c7dfcc1065add526b957">mapSavedChecker</a></div><div class="ttdeci">bool mapSavedChecker()</div><div class="ttdoc">Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгорит...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1092</div></div>
+<div class="ttc" id="agroup___logic_html_ga4150d6317509c7dfcc1065add526b957"><div class="ttname"><a href="group___logic.html#ga4150d6317509c7dfcc1065add526b957">mapSavedChecker</a></div><div class="ttdeci">bool mapSavedChecker()</div><div class="ttdoc">Проверяет данную точку графа из структуры graph[][5] на связность с точкой (0, 0) Рекурсивный алгорит...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1108</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
@@ -548,7 +600,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <div class="line">mapDat1=6;</div>
 <div class="line">mapDat2=6;</div>
 <div class="line"><a class="code hl_function" href="group___logic.html#ga1378dfba6cba7d563333d82706152c22">tankMovementAvailability</a>(mapDat2*t.y+t.x, t.statspeed, 0, 300, 300, mapDat1, mapDat2, 10);</div>
-<div class="ttc" id="agroup___logic_html_ga1378dfba6cba7d563333d82706152c22"><div class="ttname"><a href="group___logic.html#ga1378dfba6cba7d563333d82706152c22">tankMovementAvailability</a></div><div class="ttdeci">void tankMovementAvailability(int n, int spd, bool turn, int xOfCenter, int yOfCenter, int mapDat1, int mapDat2, double mapSize, bool a=1)</div><div class="ttdoc">Проверяет возможность перемещения танка от указанной клетки с текущей скоростью Рекурсивный алгоритм,...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1319</div></div>
+<div class="ttc" id="agroup___logic_html_ga1378dfba6cba7d563333d82706152c22"><div class="ttname"><a href="group___logic.html#ga1378dfba6cba7d563333d82706152c22">tankMovementAvailability</a></div><div class="ttdeci">void tankMovementAvailability(int n, int spd, bool turn, int xOfCenter, int yOfCenter, int mapDat1, int mapDat2, double mapSize, bool a=1)</div><div class="ttdoc">Проверяет возможность перемещения танка от указанной клетки с текущей скоростью Рекурсивный алгоритм,...</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1339</div></div>
 <div class="ttc" id="astructtank_html"><div class="ttname"><a href="structtank.html">tank</a></div><div class="ttdef"><b>Definition:</b> TanksLib.h:51</div></div>
 </div><!-- fragment --> </dd></dl>
 
@@ -592,7 +644,7 @@ $(document).ready(function(){initNavTree('group___logic.html',''); initResizable
 <p>@usage </p><div class="fragment"><div class="line"><span class="keywordtype">string</span> s=<span class="stringliteral">&quot;Michugan-san&quot;</span>;</div>
 <div class="line"><span class="keywordtype">char</span> c[s.length()];</div>
 <div class="line"><a class="code hl_function" href="group___logic.html#gad8d9bd63fa77d4f1668323bf6cb5fb10">toMasOfChar</a>(s, c);</div>
-<div class="ttc" id="agroup___logic_html_gad8d9bd63fa77d4f1668323bf6cb5fb10"><div class="ttname"><a href="group___logic.html#gad8d9bd63fa77d4f1668323bf6cb5fb10">toMasOfChar</a></div><div class="ttdeci">void toMasOfChar(string s, char *c)</div><div class="ttdoc">Функция перевода строки типа string в массив символов типа char*.</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1332</div></div>
+<div class="ttc" id="agroup___logic_html_gad8d9bd63fa77d4f1668323bf6cb5fb10"><div class="ttname"><a href="group___logic.html#gad8d9bd63fa77d4f1668323bf6cb5fb10">toMasOfChar</a></div><div class="ttdeci">void toMasOfChar(string s, char *c)</div><div class="ttdoc">Функция перевода строки типа string в массив символов типа char*.</div><div class="ttdef"><b>Definition:</b> TanksLib.h:1352</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -624,7 +676,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group___logic.html#gad8d9bd63fa77d4f1668323bf6cb5fb10" title="Функция перевода строки типа string в массив символов типа char*.">toMasOfChar()</a></dd></dl>
 <p>@usage </p><div class="fragment"><div class="line"><span class="keywordtype">string</span> s=<a class="code hl_function" href="group___logic.html#gaefa2c1ba8bf087f2f333b6ebcc646997">toString</a>(456);</div>
-<div class="ttc" id="agroup___logic_html_gaefa2c1ba8bf087f2f333b6ebcc646997"><div class="ttname"><a href="group___logic.html#gaefa2c1ba8bf087f2f333b6ebcc646997">toString</a></div><div class="ttdeci">string toString(T value)</div><div class="ttdoc">Функция перевода значений любого числового типа в строку string.</div><div class="ttdef"><b>Definition:</b> TanksLib.h:675</div></div>
+<div class="ttc" id="agroup___logic_html_gaefa2c1ba8bf087f2f333b6ebcc646997"><div class="ttname"><a href="group___logic.html#gaefa2c1ba8bf087f2f333b6ebcc646997">toString</a></div><div class="ttdeci">string toString(T value)</div><div class="ttdoc">Функция перевода значений любого числового типа в строку string.</div><div class="ttdef"><b>Definition:</b> TanksLib.h:691</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

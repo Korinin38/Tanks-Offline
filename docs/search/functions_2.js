@@ -3,7 +3,7 @@ var searchData=
   ['donotshootitisme_0',['donotshootitisme',['../group___interface.html#gaf99a8cb337732bc0fb1e8f003e1879af',1,'TanksLib.h']]],
   ['drawattack_1',['drawAttack',['../group___drawing.html#gad4bd211e01e7ddb681171dd6b654ce45',1,'TanksLib.h']]],
   ['drawavailableplacetostart_2',['drawAvailablePlaceToStart',['../group___drawing.html#ga776f4914a4809a8dc84ce4937a744eb1',1,'TanksLib.h']]],
-  ['drawboom_3',['drawBoom',['../group___drawing.html#gaa5b9f9118d26d01e3f11c0e4b1403417',1,'drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int boomCd):&#160;TanksLib.h'],['../group___drawing.html#ga91bba306586ffcb313fe4a485364d349',1,'drawBoom(tank t, int xOfCenter, int yOfCenter, double mapSize, int mapDat1, int mapDat2, int *boomCd):&#160;TanksOffline.h']]],
+  ['drawboom_3',['drawBoom',['../group___drawing.html#gaa5b9f9118d26d01e3f11c0e4b1403417',1,'TanksLib.h']]],
   ['drawbuttonaddperk_4',['drawButtonAddPerk',['../group___drawing.html#gabd552d26260d773ca26ddedb9c23ed7f',1,'TanksLib.h']]],
   ['drawbuttonformenuexit_5',['drawButtonForMenuExit',['../group___drawing.html#ga46036dd7ddf4ba9132adda91f0c51059',1,'TanksLib.h']]],
   ['drawbuttonformenumapredactor_6',['drawButtonForMenuMapRedactor',['../group___drawing.html#ga419620fa0219bfd9478432c8ab98855d',1,'TanksLib.h']]],

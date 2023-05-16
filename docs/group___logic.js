@@ -4,6 +4,7 @@ var group___logic =
     [ "chooseStartClear", "group___logic.html#gaeb5278c1f1a11c92f348614887f97f69", null ],
     [ "chooseStartInitialise", "group___logic.html#gaac1436333cdd7fddaa447a4f8922de4d", null ],
     [ "correctMapChecker", "group___logic.html#ga3049642284f0414b802497e94801411d", null ],
+    [ "In_d", "group___logic.html#ga5d760a2c92de2733eff0561ee43f8e80", null ],
     [ "mapBoundController", "group___logic.html#ga44b923e58f9afe784a5a7f57bd987cee", null ],
     [ "mapInitializer", "group___logic.html#ga648129945d5250a622a26f883744574b", null ],
     [ "mapSavedChecker", "group___logic.html#ga4150d6317509c7dfcc1065add526b957", null ],
